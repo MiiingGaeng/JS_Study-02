@@ -25,6 +25,9 @@
 
 // TODO: get20sEmail 함수를 작성하세요.
 function get20sEmail(arr) {
+  const findTwenty = function (a) {
+    if (a > 19 && a < 30) return a;
+  };
   const sortAge = (a, b) => {
     if (a.age > b.age) {
       return 1;
@@ -36,12 +39,12 @@ function get20sEmail(arr) {
   };
 
   return arr
-    .filter((user) => user.age > 19 && user.age < 30)
+    .filter((user) => findTwenty(user.age))
     .sort(sortAge)
     .map((user) => user.email);
 }
 
-//filter에서 문제 생기는거 좀따 체크해보기
+//sort에서 콜백함수 문법 복습하기! : 인자가 같으면 생략!
 
 // export를 수정하지 마세요.
 export { get20sEmail };

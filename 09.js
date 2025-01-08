@@ -13,6 +13,15 @@
 // TODO: calculateStatistics 함수를 작성하세요.
 function calculateStatistics(users) {
   // TODO
+  const findAve =
+    users.reduce((acc, cur) => {
+      acc + cur.age;
+    }, 0) / users.length;
+  const findMax = users.reduce((acc, cur) => {
+    acc < cur.age ? (acc = cur.age) : acc;
+  }, 0);
+
+  return { findAve, findMax };
 }
 
 // export를 수정하지 마세요.
