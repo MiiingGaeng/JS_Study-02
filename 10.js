@@ -29,8 +29,40 @@
 
 // TODO: groupBy 함수를 작성하세요.
 
+// function groupBy(arr, key) {
+//   if (arr.length > 0) {
+//     const groupA = arr.filter((user) => arr[0][key] === user[key]);
+//     const groupB = arr.filter((user) => groupA[0][key] !== user[key]);
+
+//     console.log(groupA);
+//     console.log(groupB);
+
+//     const answer =
+//       groupB.length === 0 ? { A: groupA } : { A: groupA, B: groupB };
+
+//     console.log(answer);
+//     return answer;
+//   } else {
+//     return {};
+//   }
+// }
+
 function groupBy(arr, key) {
-  // 여기에 코드를 작성하세요.
+  let answer = {};
+  for (let i = 0; i < arr.length; i++) {
+    let cate = arr[i][key];
+
+    if (answer[cate]) {
+      //key를 가지고 있는지부터 판별
+      //answer 객체에 arr[i] value가 키로 들어가고 / arr[i]가 밸류로 들어가고
+      answer[cate].push(arr[i]);
+    } else {
+      //key가 없으면
+      answer[cate] = [arr[i]];
+    }
+  }
+
+  return answer;
 }
 
 // export를 수정하지 마세요.

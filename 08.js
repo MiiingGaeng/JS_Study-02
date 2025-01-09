@@ -18,15 +18,6 @@ function chunkArray(arr, size) {
   // TODO
   const answer = [];
 
-  // while (arr.length !== 0) {
-  //   size <= arr.length ? answer.push(arr.splice(0, size)) : answer.push(arr);
-  // }
-
-  // while (arr.length > 0) {
-  //   answer.push(arr.slice(0, size));
-  //   // arr = arr.splice(0, size);
-  // }
-
   for (let i = 0; i < arr.length; i += size) {
     answer.push(arr.slice(i, i + size));
   }

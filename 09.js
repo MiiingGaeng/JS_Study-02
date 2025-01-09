@@ -15,14 +15,26 @@ function calculateStatistics(users) {
   // TODO
   const findAve =
     users.reduce((acc, cur) => {
-      acc + cur.age;
+      return acc + cur.age;
     }, 0) / users.length;
   const findMax = users.reduce((acc, cur) => {
-    acc < cur.age ? (acc = cur.age) : acc;
+    if (acc <= 0) {
+      acc = users[0].age;
+      return acc < cur.age ? (acc = cur.age) : acc;
+    } else {
+      return acc < cur.age ? (acc = cur.age) : acc;
+    }
   }, 0);
 
-  return { findAve, findMax };
+  console.log(findAve);
+  console.log(findMax);
+
+  return users.length === 0
+    ? { averageAge: 0, maxAge: 0 }
+    : { averageAge: findAve, maxAge: findMax };
 }
+
+calculateStatistics([{ age: -5 }, { age: -15 }, { age: -25 }]);
 
 // export를 수정하지 마세요.
 export { calculateStatistics };
